@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <title>Product Line</title>
+    <link rel="shortcut icon" href="images/logo.png">
 </head>
+
 <body>
-    
+    <header>
+        <div class="banner">
+            <a href="#home">
+                <img src="images/banner_image.png" alt="Banner Image">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#cart">Shopping Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products">
+            <h1>Our Products</h1>
+            <div id="product-list">
+                <!-- Product items will be dynamically injected here -->
+            </div>
+        </section>
+
+        <section id="cart">
+            <h1>Shopping Cart</h1>
+            <div id="cart-items">
+                <!-- Shopping cart items will be dynamically injected here -->
+            </div>
+            <div id="cart-summary">
+                <!-- Cart summary and checkout button will be injected here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>©️ 2024 All rights reserved.</p>
+        <p><a href="mailto:info@productline.com">Request Information</a></p>
+        <p>Eshwar Kumar Noola, c0930297</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
