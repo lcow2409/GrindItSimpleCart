@@ -1,0 +1,136 @@
+<!-- 
+    Name: Eshwar Kumar Noola 
+    Roll No: c0930297
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Grind It Simple</title>
+    <link rel="shortcut icon" href="../images/logo.png">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="banner">
+                <a href="index.html">
+                    <img src="../images/banner_image.png" alt="Banner Image">
+                </a>
+            </div>
+            <div class="navigation">
+                <nav>
+                    <ul>
+                        <li><a href="#" onclick="showTab('home')">Home</a></li>
+                        <li><a href="#" onclick="showTab('cart')">Cart</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section id="home" class="active">
+                <div class="main-container">
+                    <h1>Welcome to the world of coffee grinders</h1>
+                    <p>
+                        Welcome to <b>GrindItSimple</b> – your go-to place for all kinds of electric coffee grinders! We really
+                        think that making great coffee should be easy, so we have gathered top-quality coffee grinders, expert advice, and
+                        useful tips all in one spot to make your coffee experience impressive. Our website is like your coffee
+                        friend, giving you everything you need for the best cup. Even if you’re starting your coffee journey or
+                        you’re a pro, we’ve have everything covered. Think of it as taking it step by step - one grind at a
+                        time. Join us at GrindItSimple where making amazing coffee is as easy as enjoying it.
+                    </p>
+
+                    <h2>Our Products</h2>
+                    <div class="products">
+                        <div class="product">
+                            <img src="./images/products/img_1.jpg" alt="Baratza Encore">
+                            <h3>Baratza Encore</h3>
+                            <p>$29.99</p>
+                            <p class="description">A versatile grinder with 40 grind settings, ideal for brewing methods ranging from espresso to French press.</p>
+                            <button onclick="addToCart('Baratza Encore', 29.99, './images/products/img_1.jpg')">Add to Cart</button>
+                        </div>
+                        <div class="product">
+                            <img src="./images/products/img_2.jpg" alt="Hario Skerton Pro">
+                            <h3>Hario Skerton Pro</h3>
+                            <p>$39.99</p>
+                            <p class="description">A compact and durable grinder with a ceramic burr mechanism, perfect for travel and manual use.</p>
+                            <button onclick="addToCart('Hario Skerton Pro', 39.99, './images/products/img_2.jpg')">Add to Cart</button>
+                        </div>
+                        <div class="product">
+                            <img src="./images/products/img_3.jpg" alt="Capresso Infinity">
+                            <h3>Capresso Infinity</h3>
+                            <p>$49.99</p>
+                            <p class="description">Offers a wide grind range with its conical burrs, designed for both espresso and drip coffee.</p>
+                            <button onclick="addToCart('Capresso Infinity', 49.99, './images/products/img_3.jpg')">Add to Cart</button>
+                        </div>
+                        <div class="product">
+                            <img src="./images/products/img_4.jpg" alt="Krups GX5000">
+                            <h3>Krups GX5000</h3>
+                            <p>$59.99</p>
+                            <p class="description">Features a large capacity and multiple grind settings, making it suitable for various coffee styles.</p>
+                            <button onclick="addToCart('Krups GX5000', 59.99, './images/products/img_4.jpg')">Add to Cart</button>
+                        </div>
+                        <div class="product">
+                            <img src="./images/products/img_5.jpg" alt="Breville Smart Grinder">
+                            <h3>Breville Smart Grinder Pro</h3>
+                            <p>$69.99</p>
+                            <p class="description">Equipped with an LCD screen and 60 grind settings for precision and consistency in every cup.</p>
+                            <button onclick="addToCart('Breville Smart Grinder', 69.99, './images/products/img_5.jpg')">Add to Cart</button>
+                        </div>
+                        <div class="product">
+                            <img src="./images/products/img_6.jpg" alt="Porlex Mini">
+                            <h3>Porlex Mini</h3>
+                            <p>$59.99</p>
+                            <p class="description">A portable grinder with a stainless steel body and ceramic burrs, ideal for on-the-go coffee enthusiasts.</p>
+                            <button onclick="addToCart('Porlex Mini', 59.99, './images/products/img_6.jpg')">Add to Cart</button>
+                        </div>
+                        <div class="product">
+                            <img src="./images/products/img_7.jpg" alt="Mahlkönig K3">
+                            <h3>Mahlkönig K3</h3>
+                            <p>$79.99</p>
+                            <p class="description">Known for its commercial-grade build and consistent grind size, suitable for serious coffee drinkers.</p>
+                            <button onclick="addToCart('Mahlkönig K3', 79.99, './images/products/img_7.jpg')">Add to Cart</button>
+                        </div>
+                        <div class="product">
+                            <img src="./images/products/img_8.jpg" alt="DeLonghi Dedica">
+                            <h3>DeLonghi Dedica</h3>
+                            <p>$89.99</p>
+                            <p class="description">Compact and stylish with adjustable settings for fine to coarse grinding, great for home espresso brewing.
+                            </p>
+                            <button onclick="addToCart('DeLonghi Dedica', 89.99, './images/products/img_8.jpg')">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+            </section>
+
+            <section id="cart" style="display:none;">
+                <h1>Your Cart</h1>
+                <div id="cart-items">
+                    <!-- Cart items will be displayed here -->
+                </div>
+                <div id="cart-total"></div>
+            </section>
+        </main>
+
+        <footer class="footer-tab">
+            <p>©️Copyright 2024. All rights reserved.</p>
+            <p><a href="mailto:GrindItSimple@gmail.com">Request Information</a></p>
+            <p>Eshwar Kumar Noola, c0930287</p>
+        </footer>
+    </div>
+
+    <!-- Notification message -->
+    <div id="notification" class="cart-notification"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

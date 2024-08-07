@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Baratza Encore",
+        "price": 29.99,
+        "description": "A versatile grinder with 40 grind settings, ideal for brewing methods ranging from espresso to French press.",
+        "imageSrc": "./images/products/img_1.jpg"
+    },
+    {
+        "name": "Hario Skerton Pro",
+        "price": 39.99,
+        "description": "A compact and durable grinder with a ceramic burr mechanism, perfect for travel and manual use.",
+        "imageSrc": "./images/products/img_2.jpg"
+    },
+    {
+        "name": "Capresso Infinity",
+        "price": 49.99,
+        "description": "Offers a wide grind range with its conical burrs, designed for both espresso and drip coffee.",
+        "imageSrc": "./images/products/img_3.jpg"
+    },
+    {
+        "name": "Krups GX5000",
+        "price": 59.99,
+        "description": "Features a large capacity and multiple grind settings, making it suitable for various coffee styles.",
+        "imageSrc": "./images/products/img_4.jpg"
+    },
+    {
+        "name": "Breville Smart Grinder Pro",
+        "price": 59.99,
+        "description": "Equipped with an LCD screen and 60 grind settings for precision and consistency in every cup.",
+        "imageSrc": "./images/products/img_5.jpg"
+    },
+    {
+        "name": "Porlex Mini",
+        "price": 59.99,
+        "description": "A portable grinder with a stainless steel body and ceramic burrs, ideal for on-the-go coffee enthusiasts.",
+        "imageSrc": "./images/products/img_6.jpg"
+    },
+    {
+        "name": "Mahlkönig K3",
+        "price": 59.99,
+        "description": "Known for its commercial-grade build and consistent grind size, suitable for serious coffee drinkers.",
+        "imageSrc": "./images/products/img_7.jpg"
+    },
+    {
+        "name": "DeLonghi Dedica",
+        "price": 59.99,
+        "description": "Compact and stylish with adjustable settings for fine to coarse grinding, great for home espresso brewing.",
+        "imageSrc": "./images/products/img_8.jpg"
+    }
+]
