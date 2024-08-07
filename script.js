@@ -1,3 +1,42 @@
+const TAX_RATE = 0.13; // Tax rate of 13%
+
+// Function to fetch products from JSON file
+async function fetchProducts() {
+  try {
+    const response = await fetch("products.json");
+    if (!response.ok) throw new Error("Network response was not ok");
+    const products = await response.json();
+    return products;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return [];
+  }
+}
+
+// Function to display products dynamically
+async function displayProducts() {
+  const products = await fetchProducts();
+  const productList = document.getElementById("product-list");
+  productList.innerHTML = "";
+
+  products.forEach((product) => {
+    const productDiv = document.createElement("div");
+    productDiv.classList.add("product");
+    productDiv.innerHTML = `
+      <img src="images/products/${product.imgSrc}" alt="${
+      product.name
+    }" onerror="this.src='images/products/img_1.jpg'">
+      <h3>${product.name}</h3>
+      <p>$${product.price.toFixed(2)}</p>
+      <p class="description">${product.description}</p>
+      <button onclick="addToCart('${product.name}', ${
+      product.price
+    }, 'images/products/${product.imgSrc}')">Add to Cart</button>
+    `;
+    productList.appendChild(productDiv);
+  });
+}
+
 // Function to add product to cart
 function addToCart(name, price, imgSrc) {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -15,52 +54,61 @@ function addToCart(name, price, imgSrc) {
 
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
   updateCartUI();
-  showNotification(name); // Pass the product name to the notification function
+  showNotification(`${name} added to cart`);
 }
 
-// Function to update cart UI
+// Function to update cart UI with tax calculation
 function updateCartUI() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const cartItemsContainer = document.getElementById("cart-items");
   cartItemsContainer.innerHTML = "";
 
+  let subtotal = 0;
+
   cartItems.forEach((item) => {
     const itemDiv = document.createElement("div");
     itemDiv.classList.add("cart-item");
     itemDiv.innerHTML = `
-              <img src="${item.imgSrc}" alt="${item.name}">
-              <h3>${item.name}</h3>
-              <p>Price: $${item.price.toFixed(2)}</p>
-              <p>Quantity: ${item.quantity}</p>
-          `;
+      <img src="${item.imgSrc}" alt="${item.name}">
+      <h3>${item.name}</h3>
+      <p>Price: $${item.price.toFixed(2)}</p>
+      <p>Quantity: ${item.quantity}</p>
+    `;
     cartItemsContainer.appendChild(itemDiv);
+
+    subtotal += item.price * item.quantity;
   });
 
-  // Calculate and display total
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-  const totalDiv = document.getElementById("cart-total");
-  totalDiv.innerHTML = `Total: $${total.toFixed(2)}`;
+  // Calculate total tax and total price
+  const tax = subtotal * TAX_RATE;
+  const total = subtotal + tax;
+
+  const totalDiv = document.getElementById("cart-summary");
+  totalDiv.innerHTML = `Subtotal: $${subtotal.toFixed(
+    2
+  )}<br>Tax: $${tax.toFixed(2)}<br>Total: $${total.toFixed(2)}`;
 }
 
 // Function to show notification
-function showNotification(productName) {
+function showNotification(message) {
   const notification = document.getElementById("notification");
-  notification.innerHTML = `${productName} added to cart`;
+  notification.innerHTML = message;
   notification.classList.add("show");
   setTimeout(() => {
     notification.classList.remove("show");
   }, 3000);
 }
 
-// Function to show tab
+// Function to switch tabs
 function showTab(tabId) {
-  const tabs = document.querySelectorAll("main section");
-  tabs.forEach((tab) => (tab.style.display = "none"));
+  document.querySelectorAll("main section").forEach((section) => {
+    section.style.display = "none";
+  });
   document.getElementById(tabId).style.display = "block";
 }
 
-// Initialize cart UI on page load
-document.addEventListener("DOMContentLoaded", updateCartUI);
+// Event listener for page load
+document.addEventListener("DOMContentLoaded", () => {
+  displayProducts();
+  updateCartUI();
+});

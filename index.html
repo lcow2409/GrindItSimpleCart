@@ -49,66 +49,11 @@
                     </p>
 
                     <h2>Our Products</h2>
-                    <div class="products">
-                        <div class="product">
-                            <img src="./images/products/img_1.jpg" alt="Baratza Encore">
-                            <h3>Baratza Encore</h3>
-                            <p>$29.99</p>
-                            <p class="description">A versatile grinder with 40 grind settings, ideal for brewing methods ranging from espresso to French press.</p>
-                            <button onclick="addToCart('Baratza Encore', 29.99, './images/products/img_1.jpg')">Add to Cart</button>
-                        </div>
-                        <div class="product">
-                            <img src="./images/products/img_2.jpg" alt="Hario Skerton Pro">
-                            <h3>Hario Skerton Pro</h3>
-                            <p>$39.99</p>
-                            <p class="description">A compact and durable grinder with a ceramic burr mechanism, perfect for travel and manual use.</p>
-                            <button onclick="addToCart('Hario Skerton Pro', 39.99, './images/products/img_2.jpg')">Add to Cart</button>
-                        </div>
-                        <div class="product">
-                            <img src="./images/products/img_3.jpg" alt="Capresso Infinity">
-                            <h3>Capresso Infinity</h3>
-                            <p>$49.99</p>
-                            <p class="description">Offers a wide grind range with its conical burrs, designed for both espresso and drip coffee.</p>
-                            <button onclick="addToCart('Capresso Infinity', 49.99, './images/products/img_3.jpg')">Add to Cart</button>
-                        </div>
-                        <div class="product">
-                            <img src="./images/products/img_4.jpg" alt="Krups GX5000">
-                            <h3>Krups GX5000</h3>
-                            <p>$59.99</p>
-                            <p class="description">Features a large capacity and multiple grind settings, making it suitable for various coffee styles.</p>
-                            <button onclick="addToCart('Krups GX5000', 59.99, './images/products/img_4.jpg')">Add to Cart</button>
-                        </div>
-                        <div class="product">
-                            <img src="./images/products/img_5.jpg" alt="Breville Smart Grinder">
-                            <h3>Breville Smart Grinder Pro</h3>
-                            <p>$69.99</p>
-                            <p class="description">Equipped with an LCD screen and 60 grind settings for precision and consistency in every cup.</p>
-                            <button onclick="addToCart('Breville Smart Grinder', 69.99, './images/products/img_5.jpg')">Add to Cart</button>
-                        </div>
-                        <div class="product">
-                            <img src="./images/products/img_6.jpg" alt="Porlex Mini">
-                            <h3>Porlex Mini</h3>
-                            <p>$59.99</p>
-                            <p class="description">A portable grinder with a stainless steel body and ceramic burrs, ideal for on-the-go coffee enthusiasts.</p>
-                            <button onclick="addToCart('Porlex Mini', 59.99, './images/products/img_6.jpg')">Add to Cart</button>
-                        </div>
-                        <div class="product">
-                            <img src="./images/products/img_7.jpg" alt="Mahlkönig K3">
-                            <h3>Mahlkönig K3</h3>
-                            <p>$79.99</p>
-                            <p class="description">Known for its commercial-grade build and consistent grind size, suitable for serious coffee drinkers.</p>
-                            <button onclick="addToCart('Mahlkönig K3', 79.99, './images/products/img_7.jpg')">Add to Cart</button>
-                        </div>
-                        <div class="product">
-                            <img src="./images/products/img_8.jpg" alt="DeLonghi Dedica">
-                            <h3>DeLonghi Dedica</h3>
-                            <p>$89.99</p>
-                            <p class="description">Compact and stylish with adjustable settings for fine to coarse grinding, great for home espresso brewing.
-                            </p>
-                            <button onclick="addToCart('DeLonghi Dedica', 89.99, './images/products/img_8.jpg')">Add to Cart</button>
-                        </div>
+                    <div id="product-list" class="products">
+                      <!-- Products will be dynamically inserted here -->
                     </div>
-                    
+                  
+                </div>
             </section>
 
             <section id="cart" style="display:none;">
@@ -116,7 +61,9 @@
                 <div id="cart-items">
                     <!-- Cart items will be displayed here -->
                 </div>
-                <div id="cart-total"></div>
+                <div id="cart-summary" class="cart-summary">
+                    <!-- Cart summary will be displayed here -->
+                </div>
             </section>
         </main>
 
