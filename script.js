@@ -72,6 +72,9 @@ function updateCartUI() {
   const cartItemsContainer = document.getElementById("cart-items");
   cartItemsContainer.innerHTML = "";
 
+  if (cartItems.length === 0) {
+    cartItemsContainer.innerHTML = "<p>No items added yet.</p>";
+  }
   let subtotal = 0;
 
   cartItems.forEach((item) => {
