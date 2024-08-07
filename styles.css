@@ -197,10 +197,6 @@ main p {
     font-size: 16px;
 }
 
-.cart-item p {
-    margin: 20px;
-}
-
 .cart-item .quantity {
     color: #333;
     font-weight: bold;
@@ -211,6 +207,22 @@ main p {
     margin-top: 20px;
     font-weight: bold;
 }
+
+.cart-item button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.cart-item button:hover {
+    background-color: #c82333;
+}
+
 
 /* Notification styles */
 .cart-notification {

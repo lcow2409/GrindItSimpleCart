@@ -58,6 +58,14 @@ function addToCart(name, price, imgSrc) {
   showNotification(`${name} added to cart`);
 }
 
+// Function to remove product from cart
+function removeFromCart(name) {
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  cartItems = cartItems.filter((item) => item.name !== name);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  updateCartUI();
+}
+
 // Function to update cart UI with tax calculation
 function updateCartUI() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -70,11 +78,12 @@ function updateCartUI() {
     const itemDiv = document.createElement("div");
     itemDiv.classList.add("cart-item");
     itemDiv.innerHTML = `
-        <img src="${item.imgSrc}" alt="${item.name}"
+        <img src="${item.imgSrc}" alt="${item.name}">
         <div class="cart-item-details">
             <h3>${item.name}</h3>
             <p>Price: $${item.price.toFixed(2)}</p>
             <p>Quantity: ${item.quantity}</p>
+            <button onclick="removeFromCart('${item.name}')">Remove</button>
         </div>
         `;
     cartItemsContainer.appendChild(itemDiv);
