@@ -23,16 +23,17 @@ async function displayProducts() {
     const productDiv = document.createElement("div");
     productDiv.classList.add("product");
     productDiv.innerHTML = `
-      <img src="images/products/${product.imgSrc}" alt="${
-      product.name
-    }" onerror="this.src='images/products/img_1.jpg'">
-      <h3>${product.name}</h3>
-      <p>$${product.price.toFixed(2)}</p>
-      <p class="description">${product.description}</p>
-      <button onclick="addToCart('${product.name}', ${
-      product.price
-    }, 'images/products/${product.imgSrc}')">Add to Cart</button>
-    `;
+            <img src="${product.imgSrc}" alt="${product.name}"
+            onerror="console.error('Failed to load image for ${
+              product.name
+            } at ${product.imgSrc}'); this.src='images/products/img_2.jpg'">
+            <h3>${product.name}</h3>
+            <p>$${product.price.toFixed(2)}</p>
+            <p class="description">${product.description}</p>
+            <button onclick="addToCart('${product.name}', ${product.price}, '${
+      product.imgSrc
+    }')">Add to Cart</button>
+        `;
     productList.appendChild(productDiv);
   });
 }
@@ -69,11 +70,13 @@ function updateCartUI() {
     const itemDiv = document.createElement("div");
     itemDiv.classList.add("cart-item");
     itemDiv.innerHTML = `
-      <img src="${item.imgSrc}" alt="${item.name}">
-      <h3>${item.name}</h3>
-      <p>Price: $${item.price.toFixed(2)}</p>
-      <p>Quantity: ${item.quantity}</p>
-    `;
+        <img src="${item.imgSrc}" alt="${item.name}"
+        <div class="cart-item-details">
+            <h3>${item.name}</h3>
+            <p>Price: $${item.price.toFixed(2)}</p>
+            <p>Quantity: ${item.quantity}</p>
+        </div>
+        `;
     cartItemsContainer.appendChild(itemDiv);
 
     subtotal += item.price * item.quantity;
@@ -86,7 +89,7 @@ function updateCartUI() {
   const totalDiv = document.getElementById("cart-summary");
   totalDiv.innerHTML = `Subtotal: $${subtotal.toFixed(
     2
-  )}<br>Tax: $${tax.toFixed(2)}<br>Total: $${total.toFixed(2)}`;
+  )}<br>Tax(13%): $${tax.toFixed(2)}<br>Total:  $${total.toFixed(2)}`;
 }
 
 // Function to show notification
